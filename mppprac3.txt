@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Color _color = Colors.yellow;
+
+  void _changeColor() {
+    setState(() {
+      if (_color == Colors.yellow) {
+        _color = Colors.green;
+      } else {
+        _color = Colors.yellow;
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "MET ISDR",
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: Scaffold(
+        appBar: AppBar(title: Text('First App by aifaz')),
+        body: Container(decoration: BoxDecoration(color: _color)),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _changeColor,
+          child: Icon(Icons.add),
+          tooltip: 'Click me',
+        ),
+      ),
+    );
+  }
+}
